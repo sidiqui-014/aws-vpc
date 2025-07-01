@@ -1,0 +1,64 @@
+📄 python-server-setup.txt
+
+# Python HTTP Server Setup Guide
+python3 -m http.server 8000 --bind 0.0.0.0
+
+This file provides instructions to start a basic web server using Python on an EC2 instance.
+
+📌 Requirements:
+- Python 3 installed (Amazon Linux 2, Ubuntu, etc.)
+- EC2 instance with port 8000 or 8080 open in security group
+- Basic HTML file (e.g., index.html) placed in your working directory
+
+---
+
+🔧 Step 1: Connect to the EC2 instance via SSH
+
+```bash
+ssh -i "your-key.pem" ubuntu@<your-ec2-public-ip>
+
+🔧 Step 2: Update and install Python if not already available
+
+sudo apt update
+sudo apt install -y python3
+
+Check version:
+
+python3 --version
+
+🔧 Step 3: Move to the directory with your index.html file
+
+cd /home/ubuntu/
+
+🔧 Step 4: Start the web server on port 8000
+
+python3 -m http.server 8000 --bind 0.0.0.0
+
+📎 This will serve files in the current directory over HTTP.
+
+🌍 Step 5: Visit your site in a browser
+
+http://<your-ec2-public-ip>:8000
+
+Make sure your EC2 security group allows inbound TCP traffic on port 8000.
+
+🛑 To stop the server, press:
+
+CTRL + C
+
+✅ Example Output:
+
+Serving HTTP on 0.0.0.0 port 8000 (http://0.0.0.0:8000/) ...
+
+📁 Optional: Run as background process
+
+nohup python3 -m http.server 8000 --bind 0.0.0.0 &
+
+This keeps it running after you log out.
+
+📌 Note:
+This server is not production-ready. It's great for:
+
+    Testing HTML files
+
+    Internal network demos
