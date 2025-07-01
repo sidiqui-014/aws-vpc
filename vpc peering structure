@@ -1,0 +1,5 @@
+vpc-peering-project/
+├── README.md
+├── vpc-peering-diagram.png  ← your diagram image file
+├── ping-test.txt
+└── security-group-config.txt (optional)
